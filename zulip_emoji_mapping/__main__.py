@@ -49,7 +49,8 @@ class ZulipEmojiMapping:
             EmojiName | None: emoji if found
 
         Example:
-
+            >>> ZulipEmojiMapping.get_emoji_by_name("family_man_girl_boy")
+            👨‍👧‍👦
         """
         for code, data in EMOJI_NAME_MAPS.items():
             if name != data["canonical_name"] and name not in data["aliases"]:
