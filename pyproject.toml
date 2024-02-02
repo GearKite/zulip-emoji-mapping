@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zulip-emoji-mapping"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Zulip emoji name mapping"
 authors = ["GearKite <emgh@em.id.lv>"]
 license = "Apache-2.0"
