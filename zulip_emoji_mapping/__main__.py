@@ -5,7 +5,7 @@ Emoji = NewType("Emoji", str)
 EmojiName = NewType("EmojiName", str)
 
 
-class EmojiNotFound(Exception): ...
+class EmojiNotFoundException(Exception): ...
 
 
 class ZulipEmojiMapping:
@@ -34,7 +34,7 @@ class ZulipEmojiMapping:
         emoji_code_zulip = "-".join(emoji_code_parts)
         emoji_code_zulip = emoji_code_zulip.lower()
         if emoji_code_zulip not in EMOJI_NAME_MAPS:
-            raise EmojiNotFound(f"No such emoji: {emoji_code_zulip}")
+            raise EmojiNotFoundException(f"No such emoji: {emoji_code_zulip}")
 
         return EMOJI_NAME_MAPS[emoji_code_zulip]["canonical_name"]
 
@@ -61,4 +61,4 @@ class ZulipEmojiMapping:
                 emoji.append(chr(int(part, 16)))
             return "".join(emoji)
 
-        raise EmojiNotFound(f"Couldn't find emoji: {name}")
+        raise EmojiNotFoundException(f"Couldn't find emoji: {name}")
